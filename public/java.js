@@ -66,12 +66,22 @@
 // //function to deposit cash
 // Initialize variables
 let balance = 0;
+//the initial balance is set to 0
+
 let transactions = [];
+// an empty array is to store transaction history
+
 const transactionTable = document.getElementById("transactionTable");
+//a reference to an HTML element with the id "transactionTable", where transaction logs will be displayed.
+
 const balanceDisplay = document.getElementById("balance");
+//a reference to an HTML element with the id "balance", where the current balance will be displayed
 const amountInput = document.getElementById("amount");
+//a reference to an HTML element with the id "amount", where the user will input the amount
 const depositBtn = document.getElementById("depositBtn");
+//a reference to an HTML element with the id "depositBtn", where the user will click to
 const withdrawBtn = document.getElementById("withdrawBtn");
+//references to HTML button elements with the ids "depositBtn" and "withdrawBtn", respectively.
 
 // Function to update balance display
 function updateBalanceDisplay() {
@@ -89,11 +99,14 @@ function logTransaction(type, amount) {
   `;
   transactionTable.appendChild(newRow); // Add the new row to the transaction table
 }
+//Logs a transaction in the transaction table.
+//It creates a new table row with the transaction type, amount, and current date and time.
 
 // Event listener for Deposit button
 depositBtn.addEventListener("click", () => {
   const amount = parseFloat(amountInput.value);
   if (!isNaN(amount) && amount > 0) {
+    //&& and only
     // Validate input
     balance += amount; // Update balance
     logTransaction("Deposit", amount); // Log transaction
@@ -106,7 +119,7 @@ depositBtn.addEventListener("click", () => {
 
 // Event listener for Withdraw button
 withdrawBtn.addEventListener("click", () => {
-  const amount = parsefl(amountInput.value);
+  const amount = parseFloat(amountInput.value);
   if (!isNaN(amount) && amount > 0 && amount <= balance) {
     // Validate input
     balance -= amount; // Update balance
